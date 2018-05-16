@@ -1,0 +1,37 @@
+{
+  "name": "job-app-track",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/server.js",
+    "build": "webpack --config webpack.config.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KevinJDexter/job-app-track.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KevinJDexter/job-app-track/issues"
+  },
+  "homepage": "https://github.com/KevinJDexter/job-app-track#readme",
+  "dependencies": {
+    "angular": "^1.7.0",
+    "angular-animate": "^1.7.0",
+    "angular-aria": "^1.7.0",
+    "angular-material": "^1.1.9",
+    "angular-messages": "^1.7.0",
+    "angular-route": "^1.7.0",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.3",
+    "pg": "^7.4.3"
+  },
+  "devDependencies": {
+    "webpack": "^4.8.3",
+    "webpack-cli": "^2.1.3"
+  }
+}
