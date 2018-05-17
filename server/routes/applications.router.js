@@ -21,10 +21,10 @@ router.post('/', (req, res) => {
   const recruiterId = req.body.recruiterId;
   let query = `
     INSERT INTO "applications"
-    ("company", "jobId", "jobTitle", "jobDescription", "date", "followedUp", "followUpDate", "resume", "coverLetter", "notes", "companyUrl", "recruiter_id"),
+    ("company", "jobId", "jobTitle", "jobDescription", "date", "followedUp", "followUpDate", "resume", "coverLetter", "notes", "companyUrl", "recruiter_id")
     VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12);
   `;
-  pool.query(query, [newApplication.company, newApplicatoin.jobId, newApplication.jobTitle, newApplication.jobDescription, newApplication.date, newApplication.followedUp, newApplication.followUpDate, newApplication.resume, newApplication.coverLetter, newApplication.notes, newApplication.companyUrl, recruiterId])
+  pool.query(query, [newApplication.company, newApplication.jobId, newApplication.jobTitle, newApplication.jobDescription, newApplication.date, newApplication.followedUp, newApplication.followUpDate, newApplication.resume, newApplication.coverLetter, newApplication.notes, newApplication.companyUrl, recruiterId])
     .then(() => {
       res.sendStatus(201);
     })
@@ -85,8 +85,8 @@ router.put('/notes/:id', (req, res) => {
 // Updates the Follow-up status
 router.put('/followUp/:id', (req, res) => {
   let query = `
-    UPDATE "applicaitons"
-    SET "followUp" = $1
+    UPDATE "applications"
+    SET "followedUp" = $1
     WHERE "id" = $2;
   `;
   pool.query(query, [req.body.followedUp, req.params.id])
