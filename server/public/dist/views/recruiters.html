@@ -1,0 +1,33 @@
+<div>
+  <md-divider>
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Company</th>
+          <th>Phone</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="recruiter in vm.recruiters.list">
+          <td>{{recruiter.name}}</td>
+          <td>{{recruiter.company}}</td>
+          <td>{{recruiter.phone}}</td>
+          <td>{{recruiter.email}}</td>
+          <td><a ng-href="#!/recruiter/{{recruiter.id}}">Details</a></td>
+        </tr>
+        <tr>
+          <td><input type="text" ng-model=vm.newRecruiter.name placeholder="Name" /></td>
+          <td><input type="text" ng-model=vm.newRecruiter.company placeholder="Company" /></td>
+          <td><input type="text" ng-model=vm.newRecruiter.phone placeholder="Phone" /></td>
+          <td><input type="text" ng-model=vm.newRecruiter.email placeholder="Email" /></td>
+          <td><button ng-click=vm.addRecruiter()>Add</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </md-divider>
+</div>
+
+<pre>{{vm | json}}</pre>

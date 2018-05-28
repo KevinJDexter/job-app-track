@@ -48,7 +48,7 @@ app.service('DetailsService', ['$http', '$routeParams', function ($http, $routeP
   self.getContacts = function () {
     $http({
       method: 'GET',
-      url: `/application/contacts/${self.routeParams.id}`
+      url: `/contact/${self.routeParams.id}`
     })
       .then(function (response) {
         let primaryContact = response.data.filter(contact => contact.isPrimary == true);
@@ -65,7 +65,7 @@ app.service('DetailsService', ['$http', '$routeParams', function ($http, $routeP
   self.getRecruiter = function () {
     $http({
       method: 'GET',
-      url: `/application/recruiter/${self.routeParams.id}`
+      url: `/recruiter/${self.routeParams.id}`
     })
       .then(function (response) {
         self.application.recruiter = response.data[0];
@@ -105,7 +105,7 @@ app.service('DetailsService', ['$http', '$routeParams', function ($http, $routeP
     } else if (field === "primary") {
       $http({
         method: 'PUT',
-        url: `application/contacts/${self.application.contacts.primary.id}`,
+        url: `/contact/${self.application.contacts.primary.id}`,
         data: self.application.contacts.primary
       })
         .then(function (response) {
@@ -118,7 +118,7 @@ app.service('DetailsService', ['$http', '$routeParams', function ($http, $routeP
       self.application.contacts.additional.forEach(contact => {
         $http({
           method: 'PUT',
-          url: `application/contacts/${contact.id}`,
+          url: `/contact/${contact.id}`,
           data: contact
         })
           .then(function(response) {
@@ -145,7 +145,7 @@ app.service('DetailsService', ['$http', '$routeParams', function ($http, $routeP
     self.newContact.application_id = self.routeParams.id;
     $http({
       method: 'POST',
-      url: '/application/contacts',
+      url: '/contact',
       data: self.newContact
     })
       .then(function (response) {

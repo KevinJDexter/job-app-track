@@ -5,6 +5,8 @@ app.service('ApplicationService', ['$http', '$routeParams', '$mdDialog', '$mdToa
   var self = this;
 
   self.applicationList = {list: []};
+  self.recruiters = {list: []};
+  self.newRecruiter = {};
 
   self.getApplications = function () {
     $http({
@@ -23,6 +25,19 @@ app.service('ApplicationService', ['$http', '$routeParams', '$mdDialog', '$mdToa
       })
   }
 
+  self.getRecruiters = function () {
+    $http({
+      method: 'GET',
+      url: '/recruiter'
+    })
+      .then(function(response) {
+        self.recruiters.list = response.data;
+      })
+      .catch(function(error) {
+        console.log('Error in GET /recruiter:', error);
+      })
+  }
+
   self.followUp = function (id) {
     $http({
       method: 'PUT',
@@ -35,5 +50,27 @@ app.service('ApplicationService', ['$http', '$routeParams', '$mdDialog', '$mdToa
       .catch(function(error) {
         console.log('Error in PUT /application/followUp/id', error)
       })
+  }
+
+  self.addRecruiter = function () {
+    $http({
+      method: 'POST',
+      url: '/recruiter',
+      data: self.newRecruiter
+    })
+      .then(function () {
+        self.getRecruiters();
+        self.clearNewRecruiter();
+      })
+      .catch(function(error) {
+        console.log('Error in POST /rectuiter:', error);
+      })
+  }
+
+  self.clearNewRecruiter = function () {
+    self.newRecruiter.name = '';
+    self.newRecruiter.company = '';
+    self.newRecruiter.email = '';
+    self.newRecruiter.phone = '';
   }
 }])

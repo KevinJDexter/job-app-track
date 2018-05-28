@@ -10,6 +10,7 @@ import '../styles/style.css';
 import './controllers/details.controller';
 import './controllers/view.controller';
 import './controllers/add.controller';
+import './controllers/recruiters.controller';
 
 // const app = angular.module("JobTrackApp", ['ngRoute', 'ngMaterial']);
 import app from './app';
@@ -27,6 +28,14 @@ app.config(['$routeProvider', function( $routeProvider ) {
   .when('/details/:id', {
     templateUrl: 'views/details.html',
     controller: 'DetailsController as vm'
+  })
+  .when('/recruiters', {
+    templateUrl: 'views/recruiters.html',
+    controller: 'RecruiterController as vm'
+  })
+  .when('/recruiter/:id', {
+    templateUrl: 'views/recruiter.html',
+    controller: 'RecruiterController as vm'
   })
   .otherwise({
     template: '404'
