@@ -65,7 +65,7 @@ app.service('DetailsService', ['$http', '$routeParams', function ($http, $routeP
   self.getRecruiter = function () {
     $http({
       method: 'GET',
-      url: `/recruiter/${self.routeParams.id}`
+      url: `/recruiter/application/${self.routeParams.id}`
     })
       .then(function (response) {
         self.application.recruiter = response.data[0];

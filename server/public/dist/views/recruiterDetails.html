@@ -1,0 +1,56 @@
+<div>
+  <md-divider>
+    <h2>Recruiter Details</h2>
+    <md-input-container>
+      <input type=text ng-model=vm.recruiter.info.name placeholder="Name" ng-disabled=vm.recruiterEdit.disabled />
+    </md-input-container>
+    <md-input-container>
+      <input type=text ng-model=vm.recruiter.info.company placeholder="Company" ng-disabled=vm.recruiterEdit.disabled />
+    </md-input-container>
+    <md-input-container>
+      <input type=text ng-model=vm.recruiter.info.email placeholder="Email" ng-disabled=vm.recruiterEdit.disabled />
+    </md-input-container>
+    <md-input-container>
+      <input type=text ng-model=vm.recruiter.info.phone placeholder="Phone" ng-disabled=vm.recruiterEdit.disabled />
+    </md-input-container>
+    <br />
+    <md-button class="md-raised md-primary" ng-click=vm.toggleEdit() ng-disabled=!vm.recruiterEdit.disabled>Edit Recruiter</md-button>
+    <md-button class="md-raised md-primary" ng-click=vm.saveEdit() ng-disabled=vm.recruiterEdit.disabled>Save Changes</md-button>
+  </md-divider>
+  <md-divider>
+    <table class="jobTable" >
+      <thead>
+        <tr>
+          <th>Job Title</th>
+          <th>Company</th>
+          <th>Date Applied</th>
+          <th>Contact</th>
+          <th>Contact E-mail</th>
+          <th>Recruiter</th>
+          <th>Follow-up Date</th>
+          <th>Follow-up</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="application in vm.jobs.list">
+          <td>{{application.jobTitle}}</td>
+          <td>
+            <a ng-href="{{application.companyUrl}}">{{application.company}}</a>
+          </td>
+          <td>{{application.date | date: 'MMM d, yyyy'}}</td>
+          <td>{{application.contactName}}</td>
+          <td>{{application.contactEmail}}</td>
+          <td>{{application.recruiterName}}</td>
+          <td>{{application.followUpDate | date: 'MMM d, yyyy'}}</td>
+          <td>
+            <input type="checkbox" ng-checked="{{application.followedUp}}" ng-disabled={{application.followedUp}} ng-click="vm.followUp(application.id)">Follow Up</button>
+          </td>
+          <th>
+            <a ng-href="#!/details/{{application.id}}">Details</button>
+          </th>
+        </tr>
+      </tbody>
+    </table>
+  </md-divider>
+</div>

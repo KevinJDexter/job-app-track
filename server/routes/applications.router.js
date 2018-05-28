@@ -55,7 +55,22 @@ router.get('/details/:id', (req, res) => {
     })
 })
 
-
+// Get all job postings related to a recruiter
+router.get('/recruiter/:id', (req, res) => {
+  const query = `
+    SELECT *
+    FROM "applications"
+    WHERE "recruiter_id" = $1
+  `;
+  pool.query(query, [req.params.id])
+    .then((results) => {
+      res.send(results.rows);
+    })
+    .catch((error) => {
+      res.sendStatus(500);
+      console.log(error);
+    })
+})
 
 // Adds new job to job board
 router.post('/', (req, res) => {
