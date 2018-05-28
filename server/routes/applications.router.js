@@ -112,6 +112,22 @@ router.post('/', (req, res) => {
     })
 })
 
+router.post('/contacts', (req, res) => {
+  const contact = req.body;
+  const query = `
+    INSERT INTO "contacts" ("name", "company", "job", "phone", "email", "relation", "notes", "isPrimary", "application_id")
+    VALUES ($1, $2, $3, $4, $5, $6, $7, 'false', $8);
+  `;
+  pool.query(query, [contact.name, contact.company, contact.job, contact.phone, contact.email, contact.relation, contact.notes, contact.application_id])
+    .then(() => {
+      res.sendStatus(202);
+    })
+    .catch((error) => {
+      res.sendStatus(500);
+      console.log(error);
+    })
+})
+
 // Updates the notes field
 router.put('/notes/:id', (req, res) => {
   let query = `
@@ -180,13 +196,7 @@ router.delete('/:id', (req, res) => {
     })
 })
 
-module.exports = router;
-
-
-
-
-///// Update query to update ALL fields (commented out since, as of now, should not be an option.)
-/*
+// Update query to update ALL fields
 router.put('/:id', (req, res) => {
   const update = req.body;
   let query = `
@@ -194,18 +204,17 @@ router.put('/:id', (req, res) => {
     SET "company" = $1,
         "jobId" = $2,
         "jobTitle" = $3,
-        "jobDescription = $4,
+        "jobDescription" = $4,
         "date" = $5,
         "followedUp" = $6,
         "followUpDate" = $7,
         "resume" = $8, 
         "coverLetter" = $9,
         "notes" = $10,
-        "companyUrl" = $11,
-        "recruiter_id" = $12
-    WHERE "id" = $13;
+        "companyUrl" = $11
+    WHERE "id" = $12;
   `;
-  pool.query(query, [update.company, update.jobId, update.jobTitle, update.jobDescription, update.date, update.followedUp, update.followUpDate, update.resume, update.coverLetter, update.notes, update.companyUrl, update.recruiterId, req.params.id])
+  pool.query(query, [update.company, update.jobId, update.jobTitle, update.jobDescription, update.date, update.followedUp, update.followUpDate, update.resume, update.coverLetter, update.notes, update.companyUrl, req.params.id])
     .then(() => {
       res.sendStatus(200);
     })
@@ -213,5 +222,30 @@ router.put('/:id', (req, res) => {
       console.log('error in PUT /application/:id', error);
       res.sendStatus(500);
     })
-}
-*/
+})
+
+router.put("/contacts/:id", (req, res) => {
+  const update = req.body;
+  const query = `
+    UPDATE "contacts"
+    SET "name" = $1,
+        "company" = $2,
+        "phone" = $3,
+        "email" = $4,
+        "job" = $5,
+        "relation" = $6,
+        "notes" = $7
+    WHERE "id" = $8
+  `;
+  pool.query(query, [update.name, update.company, update.phone, update.email, update.job, update.relation, update.notes, req.params.id])
+    .then(() => {
+      res.sendStatus(202);
+    })
+    .catch((error) => {
+      res.sendStatus(500);
+      console.log(error);
+    })
+})
+
+
+module.exports = router;
