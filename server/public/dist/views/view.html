@@ -1,3 +1,38 @@
 <div>
   <h2>View view</h2>
+
+  <md-divider>
+    <table>
+      <thead>
+        <tr>
+          <th>Job Title</th>
+          <th>Company</th>
+          <th>Date Applied</th>
+          <th>Contact</th>
+          <th>Contact E-mail</th>
+          <th>Recruiter</th>
+          <th>Follow-up Date</th>
+          <th>Follow-up</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr ng-repeat="application in vm.applicationList.list">
+          <td>{{application.jobTitle}}</td>
+          <td><a ng-href="{{application.companyUrl}}">{{application.company}}</a></td>
+          <td>{{application.date | date: 'MMM d, yyyy'}}</td>
+          <td>{{application.contactName}}</td>
+          <td>{{application.contactEmail}}</td>
+          <td>{{application.recruiterName}}</td>
+          <td>{{application.followUpDate | date: 'MMM d, yyyy'}}</td>
+          <td><input type="checkbox" ng-checked="{{application.followedUp}}" ng-disabled={{application.followedUp}} ng-click="vm.followUp(application.id)">Follow Up</button></td>
+          <th><a ng-href="#!/details/{{application.id}}">Details</button></th>
+        </tr>
+      </tbody>
+    </table>
+  </md-divider>
 </div>
+
+<pre>
+  {{vm|json}}
+</pre>

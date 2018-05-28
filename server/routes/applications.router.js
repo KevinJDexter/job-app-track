@@ -4,13 +4,91 @@ const pool = require('../modules/pool');
 
 // Collects all current applications
 router.get('/all', (req, res) => {
-  let query = `SELECT * FROM "applications";`
+  let query = `SELECT * FROM "applications";`;
   pool.query(query)
     .then((results) => {
       res.send(results.rows);
     })
     .catch((error) => {
       console.log('error in GET /application/all', error);
+      res.sendStatus(500);
+    })
+})
+
+// Get info to populate onto View table
+router.get('/view', (req, res) => {
+  let query = `
+    SELECT "a"."id", "a"."company", "a"."jobTitle", "a"."date", "a"."followUpDate", 
+            "a"."followedUp", "a"."companyUrl", "r"."name" as "recruiterName",
+             "c"."name" as "contactName", "c"."email" as "contactEmail"
+    FROM "applications" as "a"
+    JOIN "contacts" as "c"
+    ON "c"."application_id" = "a"."id"
+    JOIN "recruiters" as "r"
+    ON "a"."recruiter_id" = "r"."id"
+    WHERE "c"."isPrimary" = 'true';
+  `;
+  pool.query(query)
+    .then((results) => {
+      res.send(results.rows);
+    })
+    .catch((error) => {
+      console.log('error in GET /application/info', error);
+      res.sendStatus(500);
+    })
+})
+
+// Get all info about an application for details page
+router.get('/details/:id', (req, res) => {
+  let query = `
+    SELECT *
+    FROM "applications"
+    WHERE "id" = $1;
+  `;
+  pool.query(query, [req.params.id])
+    .then((results) => {
+      res.send(results.rows);
+    })
+    .catch((error) => {
+      console.log('error in GET /application/details/:id', error);
+      res.sendStatus(500);
+    })
+})
+
+// Get info of applications respective recruiter for details page
+router.get('/recruiter/:id', (req, res) => {
+  let query = `
+    SELECT "recruiters".* 
+    FROM "applications"
+    LEFT JOIN "recruiters"
+    ON "recruiters"."id" = "applications"."recruiter_id"
+    WHERE "applications"."id" = $1;
+  `;
+  pool.query(query, [req.params.id])
+    .then((results) => {
+      res.send(results.rows);
+    })
+    .catch((error) => {
+     console.log('error in GET /application/recruiter/:id', error);
+      res.sendStatus(500);
+    })
+})
+
+// Get contacts associated with an application
+router.get('/contacts/:id', (req, res) => {
+  let query = `
+    SELECT "contacts".*
+    FROM "contacts"
+    JOIN "applications"
+    ON "contacts"."application_id" = "applications"."id"
+    WHERE "applications"."id" = $1;
+  `;
+  pool.query(query, [req.params.id])
+    .then((results) => {
+      res.send(results.rows);
+    })
+    .catch((error) => {
+      console.log('Error in GET /application/contacts/:id', error);
       res.sendStatus(500);
     })
 })
@@ -33,37 +111,6 @@ router.post('/', (req, res) => {
       res.sendStatus(500);
     })
 })
-
-///// Update query to update ALL fields (commented out since, as of now, should not be an option.)
-/*
-router.put('/:id', (req, res) => {
-  const update = req.body;
-  let query = `
-    UPDATE "applications"
-    SET "company" = $1,
-        "jobId" = $2,
-        "jobTitle" = $3,
-        "jobDescription = $4,
-        "date" = $5,
-        "followedUp" = $6,
-        "followUpDate" = $7,
-        "resume" = $8, 
-        "coverLetter" = $9,
-        "notes" = $10,
-        "companyUrl" = $11,
-        "recruiter_id" = $12
-    WHERE "id" = $13;
-  `;
-  pool.query(query, [update.company, update.jobId, update.jobTitle, update.jobDescription, update.date, update.followedUp, update.followUpDate, update.resume, update.coverLetter, update.notes, update.companyUrl, update.recruiterId, req.params.id])
-    .then(() => {
-      res.sendStatus(200);
-    })
-    .catch((error) => {
-      console.log('error in PUT /application/:id', error);
-      res.sendStatus(500);
-    })
-}
-*/
 
 // Updates the notes field
 router.put('/notes/:id', (req, res) => {
@@ -134,3 +181,37 @@ router.delete('/:id', (req, res) => {
 })
 
 module.exports = router;
+
+
+
+
+///// Update query to update ALL fields (commented out since, as of now, should not be an option.)
+/*
+router.put('/:id', (req, res) => {
+  const update = req.body;
+  let query = `
+    UPDATE "applications"
+    SET "company" = $1,
+        "jobId" = $2,
+        "jobTitle" = $3,
+        "jobDescription = $4,
+        "date" = $5,
+        "followedUp" = $6,
+        "followUpDate" = $7,
+        "resume" = $8, 
+        "coverLetter" = $9,
+        "notes" = $10,
+        "companyUrl" = $11,
+        "recruiter_id" = $12
+    WHERE "id" = $13;
+  `;
+  pool.query(query, [update.company, update.jobId, update.jobTitle, update.jobDescription, update.date, update.followedUp, update.followUpDate, update.resume, update.coverLetter, update.notes, update.companyUrl, update.recruiterId, req.params.id])
+    .then(() => {
+      res.sendStatus(200);
+    })
+    .catch((error) => {
+      console.log('error in PUT /application/:id', error);
+      res.sendStatus(500);
+    })
+}
+*/

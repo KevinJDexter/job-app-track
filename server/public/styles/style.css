@@ -1,0 +1,16 @@
+input {
+  /* font-size: 200%; */
+}
+
+body {
+  text-align: center;
+}
+
+table {
+  margin: auto;
+}
+
+table, tr, th {
+  border: black 1px solid;
+  border-collapse: collapse;
+}

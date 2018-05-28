@@ -214,6 +214,17 @@ eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/c
 
 /***/ }),
 
+/***/ "./node_modules/css-loader/index.js!./server/public/styles/style.css":
+/*!******************************************************************!*\
+  !*** ./node_modules/css-loader!./server/public/styles/style.css ***!
+  \******************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("exports = module.exports = __webpack_require__(/*! ../../../node_modules/css-loader/lib/css-base.js */ \"./node_modules/css-loader/lib/css-base.js\")(false);\n// imports\n\n\n// module\nexports.push([module.i, \"input {\\n  /* font-size: 200%; */\\n}\\n\\nbody {\\n  text-align: center;\\n}\\n\\ntable {\\n  margin: auto;\\n}\\n\\ntable, tr, th {\\n  border: black 1px solid;\\n  border-collapse: collapse;\\n}\", \"\"]);\n\n// exports\n\n\n//# sourceURL=webpack:///./server/public/styles/style.css?./node_modules/css-loader");
+
+/***/ }),
+
 /***/ "./node_modules/css-loader/lib/css-base.js":
 /*!*************************************************!*\
   !*** ./node_modules/css-loader/lib/css-base.js ***!
@@ -267,7 +278,19 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony default export */ 
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! angular */ \"./node_modules/angular/index.js\");\n/* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(angular__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var angular_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! angular-route */ \"./node_modules/angular-route/index.js\");\n/* harmony import */ var angular_route__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(angular_route__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var angular_aria__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angular-aria */ \"./node_modules/angular-aria/index.js\");\n/* harmony import */ var angular_aria__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angular_aria__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var angular_animate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-animate */ \"./node_modules/angular-animate/index.js\");\n/* harmony import */ var angular_animate__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular_animate__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular-material */ \"./node_modules/angular-material/index.js\");\n/* harmony import */ var angular_material__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(angular_material__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var angular_messages__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular-messages */ \"./node_modules/angular-messages/index.js\");\n/* harmony import */ var angular_messages__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(angular_messages__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _styles_angular_material_min_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../styles/angular-material.min.css */ \"./server/public/styles/angular-material.min.css\");\n/* harmony import */ var _styles_angular_material_min_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_styles_angular_material_min_css__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _controllers_details_controller__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ./controllers/details.controller */ \"./server/public/scripts/controllers/details.controller.js\");\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./app */ \"./server/public/scripts/app.js\");\n// Import angular\n\n\n\n\n\n\n\n\n\n// const app = angular.module(\"JobTrackApp\", ['ngRoute', 'ngMaterial']);\n\n\n\n_app__WEBPACK_IMPORTED_MODULE_8__[\"default\"].config(['$routeProvider', function( $routeProvider ) {\n  $routeProvider.when('/', {\n    templateUrl: 'views/add.html'\n  })\n  .when('/view', {\n    templateUrl: 'views/view.html'\n  })\n  .when('/details/:id', {\n    templateUrl: 'views/details.html',\n    controller: 'DetailsController as vm'\n  })\n  .otherwise({\n    template: '404'\n  })\n}])\n\n\n//# sourceURL=webpack:///./server/public/scripts/client.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! angular */ \"./node_modules/angular/index.js\");\n/* harmony import */ var angular__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(angular__WEBPACK_IMPORTED_MODULE_0__);\n/* harmony import */ var angular_route__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! angular-route */ \"./node_modules/angular-route/index.js\");\n/* harmony import */ var angular_route__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(angular_route__WEBPACK_IMPORTED_MODULE_1__);\n/* harmony import */ var angular_aria__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! angular-aria */ \"./node_modules/angular-aria/index.js\");\n/* harmony import */ var angular_aria__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(angular_aria__WEBPACK_IMPORTED_MODULE_2__);\n/* harmony import */ var angular_animate__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! angular-animate */ \"./node_modules/angular-animate/index.js\");\n/* harmony import */ var angular_animate__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(angular_animate__WEBPACK_IMPORTED_MODULE_3__);\n/* harmony import */ var angular_material__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! angular-material */ \"./node_modules/angular-material/index.js\");\n/* harmony import */ var angular_material__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(angular_material__WEBPACK_IMPORTED_MODULE_4__);\n/* harmony import */ var angular_messages__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! angular-messages */ \"./node_modules/angular-messages/index.js\");\n/* harmony import */ var angular_messages__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(angular_messages__WEBPACK_IMPORTED_MODULE_5__);\n/* harmony import */ var _styles_angular_material_min_css__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../styles/angular-material.min.css */ \"./server/public/styles/angular-material.min.css\");\n/* harmony import */ var _styles_angular_material_min_css__WEBPACK_IMPORTED_MODULE_6___default = /*#__PURE__*/__webpack_require__.n(_styles_angular_material_min_css__WEBPACK_IMPORTED_MODULE_6__);\n/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../styles/style.css */ \"./server/public/styles/style.css\");\n/* harmony import */ var _styles_style_css__WEBPACK_IMPORTED_MODULE_7___default = /*#__PURE__*/__webpack_require__.n(_styles_style_css__WEBPACK_IMPORTED_MODULE_7__);\n/* harmony import */ var _controllers_details_controller__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ./controllers/details.controller */ \"./server/public/scripts/controllers/details.controller.js\");\n/* harmony import */ var _controllers_view_controller__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! ./controllers/view.controller */ \"./server/public/scripts/controllers/view.controller.js\");\n/* harmony import */ var _controllers_add_controller__WEBPACK_IMPORTED_MODULE_10__ = __webpack_require__(/*! ./controllers/add.controller */ \"./server/public/scripts/controllers/add.controller.js\");\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_11__ = __webpack_require__(/*! ./app */ \"./server/public/scripts/app.js\");\n// Import angular\n\n\n\n\n\n\n\n\n\n\n\n\n// const app = angular.module(\"JobTrackApp\", ['ngRoute', 'ngMaterial']);\n\n\n\n_app__WEBPACK_IMPORTED_MODULE_11__[\"default\"].config(['$routeProvider', function( $routeProvider ) {\n  $routeProvider.when('/', {\n    templateUrl: 'views/add.html',\n    controller: 'AddController as vm'\n  })\n  .when('/view', {\n    templateUrl: 'views/view.html',\n    controller: 'ViewController as vm'\n  })\n  .when('/details/:id', {\n    templateUrl: 'views/details.html',\n    controller: 'DetailsController as vm'\n  })\n  .otherwise({\n    template: '404'\n  })\n}])\n\n\n//# sourceURL=webpack:///./server/public/scripts/client.js?");
+
+/***/ }),
+
+/***/ "./server/public/scripts/controllers/add.controller.js":
+/*!*************************************************************!*\
+  !*** ./server/public/scripts/controllers/add.controller.js ***!
+  \*************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app */ \"./server/public/scripts/app.js\");\n/* harmony import */ var _services_application_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/application.service */ \"./server/public/scripts/services/application.service.js\");\n\n\n\n_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"].controller('AddController', ['ApplicationService', function(ApplicationService) {\n  console.log('Add controller loaded');\n\n  var self = this;\n}])\n\n//# sourceURL=webpack:///./server/public/scripts/controllers/add.controller.js?");
 
 /***/ }),
 
@@ -279,7 +302,43 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var angu
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app */ \"./server/public/scripts/app.js\");\n// const app = angular.module(\"JobTrackApp\", ['ngRoute', 'ngMaterial']);\n\n\n_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"].controller('DetailsController', ['$routeParams', function($routeParams) {\n  console.log('Details controller loaded');\n\n  var self = this;\n\n  self.params = $routeParams.id;\n}])\n\n\n//# sourceURL=webpack:///./server/public/scripts/controllers/details.controller.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app */ \"./server/public/scripts/app.js\");\n/* harmony import */ var _services_application_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/application.service */ \"./server/public/scripts/services/application.service.js\");\n/* harmony import */ var _services_details_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../services/details.service */ \"./server/public/scripts/services/details.service.js\");\n\n\n\n\n_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"].controller('DetailsController', ['DetailsService', function(DetailsService) {\n  console.log('Details controller loaded');\n\n  var self = this;\n\n  self.routeParams = DetailsService.routeParams;\n  self.application = DetailsService.application;\n  self.disableEditFields = DetailsService.disableEditFields;\n\n  self.getRouteParams = DetailsService.getRouteParams;\n  self.getApplication = DetailsService.getApplication;\n  self.getContacts = DetailsService.getContacts;\n  self.getRecruiter = DetailsService.getRecruiter;\n\n  self.init = function () {\n    self.getRouteParams();\n    self.getApplication();\n    self.getContacts();\n    self.getRecruiter();\n  }\n\n  self.init();\n}])\n\n\n//# sourceURL=webpack:///./server/public/scripts/controllers/details.controller.js?");
+
+/***/ }),
+
+/***/ "./server/public/scripts/controllers/view.controller.js":
+/*!**************************************************************!*\
+  !*** ./server/public/scripts/controllers/view.controller.js ***!
+  \**************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app */ \"./server/public/scripts/app.js\");\n/* harmony import */ var _services_application_service__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../services/application.service */ \"./server/public/scripts/services/application.service.js\");\n\n\n\n_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"].controller('ViewController', ['ApplicationService', function(ApplicationService) {\n  console.log('View controller loaded');\n  \n  var self = this;\n\n  self.applicationList = ApplicationService.applicationList;\n\n  self.getApplications = ApplicationService.getApplications;\n  self.followUp = ApplicationService.followUp;\n\n  self.init = function () {\n    self.getApplications();\n  }\n\n  self.init();\n\n}])\n\n//# sourceURL=webpack:///./server/public/scripts/controllers/view.controller.js?");
+
+/***/ }),
+
+/***/ "./server/public/scripts/services/application.service.js":
+/*!***************************************************************!*\
+  !*** ./server/public/scripts/services/application.service.js ***!
+  \***************************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app */ \"./server/public/scripts/app.js\");\n\n\n_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"].service('ApplicationService', ['$http', '$routeParams', '$mdDialog', '$mdToast', function($http, $routeParams, $mdDialog, $mdToast){\n  console.log('Application service loaded');\n  var self = this;\n\n  self.applicationList = {list: []};\n\n  self.getApplications = function () {\n    $http({\n      method: 'GET',\n      url: '/application/view'\n    })\n      .then(function(response) {\n        self.applicationList.list = response.data;\n        $mdToast.show(\n          $mdToast.simple()\n            .textContent('TOASTY')\n        )\n      })\n      .catch(function(error) {\n        console.log('Error in GET /application:', error);\n      })\n  }\n\n  self.followUp = function (id) {\n    $http({\n      method: 'PUT',\n      url: `/application/followUp/${id}`,\n      data: {followedUp: true}\n    })\n      .then(function () {\n        self.getApplications();\n      })\n      .catch(function(error) {\n        console.log('Error in PUT /application/followUp/id', error)\n      })\n  }\n}])\n\n//# sourceURL=webpack:///./server/public/scripts/services/application.service.js?");
+
+/***/ }),
+
+/***/ "./server/public/scripts/services/details.service.js":
+/*!***********************************************************!*\
+  !*** ./server/public/scripts/services/details.service.js ***!
+  \***********************************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../app */ \"./server/public/scripts/app.js\");\n\n\n_app__WEBPACK_IMPORTED_MODULE_0__[\"default\"].service('DetailsService', ['$http', '$routeParams', function ($http, $routeParams) {\n  console.log('Details service loaded');\n\n  var self = this;\n\n  self.routeParams = { id: '' };\n  self.application = {\n    details: {},\n    contacts: {\n      primary: {},\n      additional: []\n    },\n    recruiter: {}\n  };\n  self.disableEditFields = { \n    details: true,\n    primaryContact: true,\n    additionalContacts: true,\n  };\n\n  self.getRouteParams = function () {\n    self.routeParams.id = $routeParams.id;\n  }\n\n  self.getApplication = function () {\n    $http({\n      method: 'GET',\n      url: `/application/details/${self.routeParams.id}`\n    })\n      .then(function (response) {\n        self.application.details = response.data[0];\n      })\n      .catch(function (error) {\n        console.log('Error in GET /application/details/id', error);\n      })\n  }\n\n  self.getContacts = function () {\n    $http({\n      method: 'GET',\n      url: `/application/contacts/${self.routeParams.id}`\n    })\n      .then(function (response) {\n        let primaryContact = response.data.filter(contact => contact.isPrimary == true);\n        let additionalContacts = response.data.filter(contact => contact.isPrimary != true);\n        self.application.contacts.primary = primaryContact[0];\n        self.application.contacts.additional = additionalContacts;\n      })\n      .catch(function (error) {\n        console.log('Error in GET /application/contacts/id', error);\n      })\n  }\n\n  self.getRecruiter = function () {\n    $http({\n      method: 'GET',\n      url: `/application/recruiter/${self.routeParams.id}`\n    })\n      .then(function (response) {\n        self.application.recruiter = response.data[0];\n      })\n      .catch(function (error) {\n        console.log('Error in GET /application/recruiter/id', error);\n      })\n  }\n\n}])\n\n//# sourceURL=webpack:///./server/public/scripts/services/details.service.js?");
 
 /***/ }),
 
@@ -291,6 +350,17 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _app
 /***/ (function(module, exports, __webpack_require__) {
 
 eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader!./angular-material.min.css */ \"./node_modules/css-loader/index.js!./server/public/styles/angular-material.min.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./server/public/styles/angular-material.min.css?");
+
+/***/ }),
+
+/***/ "./server/public/styles/style.css":
+/*!****************************************!*\
+  !*** ./server/public/styles/style.css ***!
+  \****************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+eval("\nvar content = __webpack_require__(/*! !../../../node_modules/css-loader!./style.css */ \"./node_modules/css-loader/index.js!./server/public/styles/style.css\");\n\nif(typeof content === 'string') content = [[module.i, content, '']];\n\nvar transform;\nvar insertInto;\n\n\n\nvar options = {\"hmr\":true}\n\noptions.transform = transform\noptions.insertInto = undefined;\n\nvar update = __webpack_require__(/*! ../../../node_modules/style-loader/lib/addStyles.js */ \"./node_modules/style-loader/lib/addStyles.js\")(content, options);\n\nif(content.locals) module.exports = content.locals;\n\nif(false) {}\n\n//# sourceURL=webpack:///./server/public/styles/style.css?");
 
 /***/ })
 
