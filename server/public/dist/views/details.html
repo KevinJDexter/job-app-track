@@ -2,46 +2,51 @@
   <md-divider>
     <form>
       <md-divider>
-        <div ng-disabled=vm.disableEditFields.details>
+        <div>
           <h4>Job Details</h4>
           <md-input-container>
-            <input type="text" ng-model=vm.application.details.jobTitle placeholder="Job Title" />
+            <input type="text" ng-model=vm.application.details.jobTitle placeholder="Job Title" ng-disabled=vm.disableEditFields.details
+            />
           </md-input-container>
           <md-input-container>
-            <input type="text" ng-model=vm.application.details.jobId placeholder="Job Listing ID" />
+            <input type="text" ng-model=vm.application.details.jobId placeholder="Job Listing ID" ng-disabled=vm.disableEditFields.details
+            />
           </md-input-container>
           <br />
           <md-input-container>
-            <textArea type="text" rows=1 cols=120 ng-model=vm.application.details.jobDescription placeholder="Job Description">
+            <textArea type="text" rows=1 cols=120 ng-model=vm.application.details.jobDescription placeholder="Job Description" ng-disabled=vm.disableEditFields.details>
         </textArea>
           </md-input-container>
           <br />
           <md-input-container>
-            <input type="text" ng-model=vm.application.details.company placeholder="Company" />
+            <input type="text" ng-model=vm.application.details.company placeholder="Company" ng-disabled=vm.disableEditFields.details
+            />
           </md-input-container>
           <md-input-container>
-            <input type="text" ng-model=vm.application.details.companyUrl placeholder="Company URL" />
-          </md-input-container>
-          <br />
-          <md-input-container>
-            <md-datepicker ng-model="vm.application.details.date" placeholder="Date Applied"></md-datepicker>
-          </md-input-container>
-          <md-input-container>
-            <md-datepicker ng-model=vm.application.details.followUpDate ng-change="vm.updateFollowedUp()" placeholder="Follow Up Date"></md-datePicker>
+            <input type="text" ng-model=vm.application.details.companyUrl placeholder="Company URL" ng-disabled=vm.disableEditFields.details
+            />
           </md-input-container>
           <br />
           <md-input-container>
-            <textArea type="text" rows=1 cols=80 ng-model=vm.application.details.notes placeholder="Notes">
+            <md-datepicker ng-model="vm.application.details.date" placeholder="Date Applied" ng-disabled=vm.disableEditFields.details></md-datepicker>
+          </md-input-container>
+          <md-input-container>
+            <md-datepicker ng-model=vm.application.details.followUpDate ng-change="vm.updateFollowedUp()" placeholder="Follow Up Date"
+              ng-disabled=vm.disableEditFields.details></md-datePicker>
+          </md-input-container>
+          <br />
+          <md-input-container>
+            <textArea type="text" rows=1 cols=80 ng-model=vm.application.details.notes placeholder="Notes" ng-disabled=vm.disableEditFields.details>
         </textArea>
           </md-input-container>
           <br />
           <md-input-container>
-            <textArea type="text" rows=4 cols=120 ng-model=vm.application.details.resume placeholder="Resume">
+            <textArea type="text" rows=4 cols=120 ng-model=vm.application.details.resume placeholder="Resume" ng-disabled=vm.disableEditFields.details>
         </textArea>
           </md-input-container>
           <br />
           <md-input-container>
-            <textArea type="text" rows=4 cols=120 ng-model=vm.application.details.coverLetter placeholder="Cover Letter">
+            <textArea type="text" rows=4 cols=120 ng-model=vm.application.details.coverLetter placeholder="Cover Letter" ng-disabled=vm.disableEditFields.details>
         </textArea>
           </md-input-container>
         </div>
@@ -52,27 +57,27 @@
       </md-divider>
 
       <md-divider>
-        <div ng-disabled=vm.disableEditFields.primaryContact>
+        <div>
           <h4>Primary Contact info</h4>
           <md-input-container>
-            <input type="text" ng-model=vm.application.contacts.primary.name placeholder="Contact Name" />
+            <input type="text" ng-model=vm.application.contacts.primary.name placeholder="Contact Name" ng-disabled=vm.disableEditFields.primaryContact />
           </md-input-container>
           <md-input-container>
-            <input type="text" ng-model=vm.application.contacts.primary.job placeholder="Contact Position" />
+            <input type="text" ng-model=vm.application.contacts.primary.job placeholder="Contact Position" ng-disabled=vm.disableEditFields.primaryContact />
           </md-input-container>
           <md-input-container>
-            <input type="text" ng-model=vm.application.contacts.primary.relation placeholder="Relationship" />
-          </md-input-container>
-          <br />
-          <md-input-container>
-            <input type="text" ng-model=vm.application.contacts.primary.phone placeholder="Phone" />
-          </md-input-container>
-          <md-input-container>
-            <input type="text" ng-model=vm.application.contacts.primary.email placeholder="Email" />
+            <input type="text" ng-model=vm.application.contacts.primary.relation placeholder="Relationship" ng-disabled=vm.disableEditFields.primaryContact />
           </md-input-container>
           <br />
           <md-input-container>
-            <textArea type="text" rows=1 cols=80 ng-model=vm.application.contacts.primary.notes placeholder="Notes">
+            <input type="text" ng-model=vm.application.contacts.primary.phone placeholder="Phone" ng-disabled=vm.disableEditFields.primaryContact />
+          </md-input-container>
+          <md-input-container>
+            <input type="text" ng-model=vm.application.contacts.primary.email placeholder="Email" ng-disabled=vm.disableEditFields.primaryContact />
+          </md-input-container>
+          <br />
+          <md-input-container>
+            <textArea type="text" rows=1 cols=80 ng-model=vm.application.contacts.primary.notes placeholder="Notes" ng-disabled=vm.disableEditFields.primaryContact >
         </textArea>
           </md-input-container>
         </div>
@@ -90,29 +95,27 @@
 
       <md-divider>
         <h4>Additional Contact info</h4>
-        <div ng-repeat="contact in vm.application.contacts.additional" ng-disabled=vm.disableEditFields.additionalContacts>
+        <div ng-repeat="contact in vm.application.contacts.additional" ng-disabled=vm.disableEditFields.additionalContacts >
 
           <md-input-container>
-            <input type="text" ng-model=contact.name placeholder="Contact Name" />
+            <input type="text" ng-model=contact.name placeholder="Contact Name" ng-disabled=vm.disableEditFields.additionalContacts />
           </md-input-container>
           <md-input-container>
-            <input type="text" ng-model=contact.job placeholder="Contact Position"
-            />
+            <input type="text" ng-model=contact.job placeholder="Contact Position" ng-disabled=vm.disableEditFields.additionalContacts />
           </md-input-container>
           <md-input-container>
-            <input type="text" ng-model=contact.relation placeholder="Relationship"
-            />
+            <input type="text" ng-model=contact.relation placeholder="Relationship" ng-disabled=vm.disableEditFields.additionalContacts />
           </md-input-container>
           <br />
           <md-input-container>
-            <input type="text" ng-model=contact.phone placeholder="Phone" />
+            <input type="text" ng-model=contact.phone placeholder="Phone" ng-disabled=vm.disableEditFields.additionalContacts />
           </md-input-container>
           <md-input-container>
-            <input type="text" ng-model=contact.email placeholder="Email" />
+            <input type="text" ng-model=contact.email placeholder="Email" ng-disabled=vm.disableEditFields.additionalContacts />
           </md-input-container>
           <br />
           <md-input-container>
-            <textArea type="text" rows=1 cols=80 ng-model=contact.notes placeholder="Notes">
+            <textArea type="text" rows=1 cols=80 ng-model=contact.notes placeholder="Notes" ng-disabled=vm.disableEditFields.additionalContacts >
         </textArea>
           </md-input-container>
         </div>
