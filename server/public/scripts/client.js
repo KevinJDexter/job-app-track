@@ -12,6 +12,7 @@ import './controllers/view.controller';
 import './controllers/add.controller';
 import './controllers/recruiters.controller';
 import './controllers/recruiterDetails.controller';
+import './controllers/add.controller';
 
 // const app = angular.module("JobTrackApp", ['ngRoute', 'ngMaterial']);
 import app from './app';

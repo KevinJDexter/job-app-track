@@ -25,9 +25,9 @@ router.post('/', (req, res) => {
   const contact = req.body;
   const query = `
     INSERT INTO "contacts" ("name", "company", "job", "phone", "email", "relation", "notes", "isPrimary", "application_id")
-    VALUES ($1, $2, $3, $4, $5, $6, $7, 'false', $8);
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9);
   `;
-  pool.query(query, [contact.name, contact.company, contact.job, contact.phone, contact.email, contact.relation, contact.notes, contact.application_id])
+  pool.query(query, [contact.name, contact.company, contact.job, contact.phone, contact.email, contact.relation, contact.notes, contact.isPrimary, contact.application_id])
     .then(() => {
       res.sendStatus(202);
     })

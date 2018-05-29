@@ -1,3 +1,155 @@
 <div>
   <h2>Add view</h2>
+  <md-divider>
+    <form>
+      <md-divider>
+        <div>
+          <h4>Job Details</h4>
+          <md-input-container>
+            <input type="text" ng-model=vm.newApplication.jobTitle placeholder="Job Title" />
+          </md-input-container>
+          <md-input-container>
+            <input type="text" ng-model=vm.newApplication.jobId placeholder="Job Listing ID" />
+          </md-input-container>
+          <br />
+          <md-input-container>
+            <textArea type="text" rows=1 cols=120 ng-model=vm.newApplication.jobDescription placeholder="Job Description">
+              </textArea>
+          </md-input-container>
+          <br />
+          <md-input-container>
+            <input type="text" ng-model=vm.newApplication.company placeholder="Company" />
+          </md-input-container>
+          <md-input-container>
+            <input type="text" ng-model=vm.newApplication.companyUrl placeholder="Company URL" />
+          </md-input-container>
+          <br />
+          <md-input-container>
+            <md-datepicker ng-model="vm.newApplication.date" placeholder="Date Applied"></md-datepicker>
+          </md-input-container>
+          <md-input-container>
+            <md-datepicker ng-model=vm.newApplication.followUpDate placeholder="Follow Up Date"></md-datePicker>
+          </md-input-container>
+          <br />
+          <md-input-container>
+            <textArea type="text" rows=1 cols=80 ng-model=vm.newApplication.notes placeholder="Notes">
+              </textArea>
+          </md-input-container>
+          <br />
+          <md-input-container>
+            <textArea type="text" rows=4 cols=120 ng-model=vm.newApplication.resume placeholder="Resume">
+              </textArea>
+          </md-input-container>
+          <br />
+          <md-input-container>
+            <textArea type="text" rows=4 cols=120 ng-model=vm.newApplication.coverLetter placeholder="Cover Letter">
+              </textArea>
+          </md-input-container>
+        </div>
+      </md-divider>
+
+      <md-divider>
+        <div>
+          <h4>Primary Contact info</h4>
+          <md-input-container>
+            <input type="text" ng-model=vm.primaryContact.name placeholder="Contact Name" />
+          </md-input-container>
+          <md-input-container>
+            <input type="text" ng-model=vm.primaryContact.job placeholder="Contact Position" />
+          </md-input-container>
+          <md-input-container>
+            <input type="text" ng-model=vm.primaryContact.relation placeholder="Relationship" />
+          </md-input-container>
+          <br />
+          <md-input-container>
+            <input type="text" ng-model=vm.primaryContact.phone placeholder="Phone" />
+          </md-input-container>
+          <md-input-container>
+            <input type="text" ng-model=vm.primaryContact.email placeholder="Email" />
+          </md-input-container>
+          <br />
+          <md-input-container>
+            <textArea type="text" rows=1 cols=80 ng-model=vm.primaryContact.notes placeholder="Notes">
+          </textArea>
+          </md-input-container>
+        </div>
+      </md-divider>
+
+      <h4>Recruiter</h4>
+      <div style="width: 200px; margin: auto">
+        <md-select ng-model="vm.newApplication.recruiter_id">
+          <md-option ng-repeat="recruiter in vm.recruiters.list" ng-value="recruiter.id">{{recruiter.name}}</md-option>
+        </md-select>
+      </div>
+
+      <md-divider>
+        <h4>Additional Contact info</h4>
+        <div ng-repeat="contact in vm.additionalContacts.list">
+
+          <md-input-container>
+            <input type="text" ng-model=contact.name placeholder="Contact Name" />
+          </md-input-container>
+          <md-input-container>
+            <input type="text" ng-model=contact.job placeholder="Contact Position" />
+          </md-input-container>
+          <md-input-container>
+            <input type="text" ng-model=contact.company placeholder="Company" />
+          </md-input-container>
+          <md-input-container>
+            <input type="text" ng-model=contact.relation placeholder="Relationship" />
+          </md-input-container>
+          <br />
+          <md-input-container>
+            <input type="text" ng-model=contact.phone placeholder="Phone" />
+          </md-input-container>
+          <md-input-container>
+            <input type="text" ng-model=contact.email placeholder="Email" />
+          </md-input-container>
+          <br />
+          <md-input-container>
+            <textArea type="text" rows=1 cols=80 ng-model=contact.notes placeholder="Notes">
+            </textArea>
+          </md-input-container>
+          <br />
+          <md-button class="md-raised md-primary" ng-click="vm.removeContact(contact)" >Remove Contact</md-button>
+        </div>
+
+        <div>
+            <md-input-container>
+              <input type="text" ng-model=vm.newContact.name placeholder="Contact Name" />
+            </md-input-container>
+            <md-input-container>
+              <input type="text" ng-model=vm.newContact.job placeholder="Contact Position" />
+            </md-input-container>
+            <md-input-container>
+              <input type="text" ng-model=vm.newContact.company placeholder="Contact Company" />
+            </md-input-container>
+            <md-input-container>
+              <input type="text" ng-model=vm.newContact.relation placeholder="Relationship" />
+            </md-input-container>
+            <br />
+            <md-input-container>
+              <input type="text" ng-model=vm.newContact.phone placeholder="Phone" />
+            </md-input-container>
+            <md-input-container>
+              <input type="text" ng-model=vm.newContact.email placeholder="Email" />
+            </md-input-container>
+            <br />
+            <md-input-container>
+              <textArea type="text" rows=1 cols=80 ng-model=vm.newContact.notes placeholder="Notes">
+              </textArea>
+            </md-input-container>
+            <br />
+            <md-button class="md-raised md-primary" ng-click="vm.addContact()" >Add Contact</md-button>
+          </div>
+          <br />
+          <br />
+          <md-button class="md-raised md-primary" ng-click="vm.submitApplication()">Submit</md-button>
+    </form>
+    </md-divider>
 </div>
+
+
+<hr />
+<hr />
+<pre>{{vm | json}}</pre>

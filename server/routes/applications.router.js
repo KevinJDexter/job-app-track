@@ -58,9 +58,15 @@ router.get('/details/:id', (req, res) => {
 // Get all job postings related to a recruiter
 router.get('/recruiter/:id', (req, res) => {
   const query = `
-    SELECT *
-    FROM "applications"
-    WHERE "recruiter_id" = $1
+    SELECT "a"."id", "a"."company", "a"."jobTitle", "a"."date", "a"."followUpDate", 
+            "a"."followedUp", "a"."companyUrl", "r"."name" as "recruiterName",
+             "c"."name" as "contactName", "c"."email" as "contactEmail"
+    FROM "applications" as "a"
+    JOIN "contacts" as "c"
+    ON "c"."application_id" = "a"."id"
+    JOIN "recruiters" as "r"
+    ON "a"."recruiter_id" = "r"."id"
+    WHERE "c"."isPrimary" = 'true' AND "r"."id" = $1;
   `;
   pool.query(query, [req.params.id])
     .then((results) => {
@@ -72,16 +78,33 @@ router.get('/recruiter/:id', (req, res) => {
     })
 })
 
+router.get('/latest', (req, res) => {
+  const query = `
+    SELECT "id"
+    FROM "applications"
+    ORDER BY "id" DESC
+    LIMIT 1;
+  `;
+  pool.query(query)
+    .then((results) => {
+      res.send(results.rows);
+    })
+    .catch((error) => {
+      res.sendStatus(500);
+      console.log(error);
+    })
+})
+
 // Adds new job to job board
 router.post('/', (req, res) => {
-  const newApplication = req.body.application;
-  const recruiterId = req.body.recruiterId;
+  const newApplication = req.body;
+  // const recruiterId = req.body.recruiterId;
   let query = `
     INSERT INTO "applications"
-    ("company", "jobId", "jobTitle", "jobDescription", "date", "followedUp", "followUpDate", "resume", "coverLetter", "notes", "companyUrl", "recruiter_id")
-    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12);
+    ("company", "jobId", "jobTitle", "jobDescription", "date", "followUpDate", "resume", "coverLetter", "notes", "companyUrl", "recruiter_id", "followedUp")
+    VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, 'false');
   `;
-  pool.query(query, [newApplication.company, newApplication.jobId, newApplication.jobTitle, newApplication.jobDescription, newApplication.date, newApplication.followedUp, newApplication.followUpDate, newApplication.resume, newApplication.coverLetter, newApplication.notes, newApplication.companyUrl, recruiterId])
+  pool.query(query, [newApplication.company, newApplication.jobId, newApplication.jobTitle, newApplication.jobDescription, newApplication.date, newApplication.followUpDate, newApplication.resume, newApplication.coverLetter, newApplication.notes, newApplication.companyUrl, newApplication.recruiter_id])
     .then(() => {
       res.sendStatus(201);
     })
